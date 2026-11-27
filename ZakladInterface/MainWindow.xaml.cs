@@ -20,6 +20,7 @@ namespace ZakladInterface
         // Vytvoření dvou samostatných zařízení
         Lampa lampa = new Lampa();
         Ventilator ventilator = new Ventilator();
+        Projektor projektor = new Projektor();
 
         public MainWindow()
         {
@@ -40,6 +41,10 @@ namespace ZakladInterface
             {
                 ventilator.Zapni();
             }
+            else if (cmbZarizeni.SelectedIndex == 2)
+            {
+                projektor.Zapni();
+            }
 
             AktualizujStav();
         }
@@ -55,6 +60,10 @@ namespace ZakladInterface
             else if (cmbZarizeni.SelectedIndex == 1)
             {
                 ventilator.Vypni();
+            }
+            else if (cmbZarizeni.SelectedIndex == 2)
+            {
+                projektor.Vypni();
             }
 
             AktualizujStav();
@@ -88,9 +97,16 @@ namespace ZakladInterface
                 else
                     txtStav.Text = "Ventilátor je vypnutý.";
             }
-
+            else if (cmbZarizeni.SelectedIndex == 2)
+            {
+                if (projektor.JeZapnuto)
+                    txtStav.Text = "Projektor je zapnutý.";
+                else
+                    txtStav.Text = "Projektor je vypnutý.";
+            }
             string stavLampy;
             string stavVentilatoru;
+            string stavProjektoru;
 
             if (lampa.JeZapnuto)
                 stavLampy = "Zapnuto";
@@ -101,10 +117,15 @@ namespace ZakladInterface
                 stavVentilatoru = "Zapnuto";
             else
                 stavVentilatoru = "Vypnuto";
+            if (projektor.JeZapnuto)
+                stavProjektoru = "Zapnuto";
+            else
+                stavProjektoru = "Vypnuto";
 
             txtPrehled.Text =
                 $"Lampa: {stavLampy}\n" +
-                $"Ventilátor: {stavVentilatoru}";
+                $"Ventilátor: {stavVentilatoru}\n" +
+                $"Projektor: {stavProjektoru}";
         }
     }
 }
