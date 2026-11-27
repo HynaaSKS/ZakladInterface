@@ -1,0 +1,90 @@
+﻿<Window x:Class="ZakladInterface.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZakladInterface"
+        mc:Ignorable="d"
+        Title="Ovládání zařízení"
+        Height="360"
+        Width="520">
+
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Ovládání elektrických zařízení"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Margin="0,0,0,20"/>
+
+        <!-- Výběr zařízení -->
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,20">
+
+            <TextBlock Text="Zařízení:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,10,0"/>
+
+            <ComboBox x:Name="cmbZarizeni"
+                      Width="160"
+                      SelectedIndex="0"
+                      SelectionChanged="CmbZarizeni_SelectionChanged">
+
+                <ComboBoxItem Content="Lampa"/>
+                <ComboBoxItem Content="Ventilátor"/>
+
+            </ComboBox>
+
+        </StackPanel>
+
+        <!-- Zapnutí a vypnutí -->
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,20">
+
+            <Button Content="Zapnout"
+                    Width="110"
+                    Height="35"
+                    Margin="0,0,10,0"
+                    Click="BtnZapnout_Click"/>
+
+            <Button Content="Vypnout"
+                    Width="110"
+                    Height="35"
+                    Click="BtnVypnout_Click"/>
+
+        </StackPanel>
+
+        <!-- Výpis stavu -->
+
+        <StackPanel Grid.Row="3">
+
+            <TextBlock Text="Aktuální stav zařízení:"
+                       FontWeight="Bold"
+                       Margin="0,0,0,10"/>
+
+            <TextBlock x:Name="txtStav"
+                       FontSize="16"
+                       Margin="0,0,0,15"/>
+
+            <TextBlock Text="Přehled všech zařízení:"
+                       FontWeight="Bold"
+                       Margin="0,0,0,10"/>
+
+            <TextBlock x:Name="txtPrehled"
+                       FontSize="14"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
