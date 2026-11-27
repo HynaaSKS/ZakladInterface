@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ZakladInterface.Tridy
 {
-    public class Lampa
+    public class Lampa : IOvladatelne
     {
         public bool JeZapnuto { get; set; }
 

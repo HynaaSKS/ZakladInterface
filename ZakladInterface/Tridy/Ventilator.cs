@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ZakladInterface.Tridy
 {
-    public class Ventilator
+    public class Ventilator : IOvladatelne
     {
         public bool JeZapnuto { get; set; }
 
